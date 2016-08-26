@@ -1,0 +1,16 @@
+var data = [
+{"hours":1,"task":"Checking email", "category":"Technology"},
+{"hours":2,"task":"Blog entry", "category":"Technology"},
+{"hours":.5,"task":"Happy hour", "category":"Leisure"},
+{"hours":.5,"task":"Visit museum", "category":"Leisure"},
+{"hours":3,"task":"Launch app", "category":"Work"},
+{"hours":2,"task":"Paint a new picture", "category":"Leisure"},
+{"hours":1,"task":"Train new staff", "category":"Work"},
+{"hours":1,"task":"Attend two meetups", "category":"Networking"},
+{"hours":5,"task":"Rework microsites", "category":"Work"},
+{"hours":6,"task":"Research new travel plans", "category":"Technology"},
+{"hours":2,"task":"Meetup happy hour", "category":"Networking"},
+{"hours":1,"task":"Coffee with old coworker", "category":"Networking"},
+{"hours":2,"task":"Update software", "category":"Technology"},
+{"hours":2,"task":"Read several articles","category":"Leisure"},
+{"hours":3,"task":"Yoga class","category":"Leisure"}]

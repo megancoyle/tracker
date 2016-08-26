@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Time Tracker</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="angular.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body class="container" data-ng-app="tracker">
+    <header class="jumbotron">
+      <h1>Time Tracker</h1>
+    </header>
+
+    <main data-ng-controller="item_controller as vm">
+      <h2>Total Time: {{vm.total_value()}}</h2>
+      <input type="text" class="form-control" placeholder="Filter on..." data-ng-model="vm.filter_on" />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td data-ng-click="vm.is_descending = !(vm.is_descending)">
+              <span data-ng-if="vm.is_descending">z-a</span>
+              <span data-ng-if="!vm.is_descending">a-z</span>
+            </td>
+            <th data-ng-click="vm.sort_data_by('task')">Task</th>
+            <th data-ng-click="vm.sort_data_by('hours')">Hours</th>
+            <th data-ng-click="vm.sort_data_by('quantity')">Quantity</th>
+            <th data-ng-click="vm.sort_data_by('category')">Category</th>
+            <th>Notes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-ng-repeat="item in vm.data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+            <td>{{$index + 1}}</td>
+            <td>{{item.task}}</td>
+            <td>{{item.hours.toFixed(2)}}</td>
+            <td>
+              <input type="number" data-ng-model="item.quantity" />
+            </td>
+            <td>{{item.category}}</td>
+            <td>
+              <input type="text" data-ng-model="item.notes" />
+            </td>
+            <td data-ng-click="vm.destroy($index)">&cross;</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="text" data-ng-model="vm.new_item.task" placeholder="Task" />
+            </td>
+            <td>
+              <input type="number" data-ng-model="vm.new_item.hours" placeholder="Hours" />
+            </td>
+            <td>
+              <input type="number" data-ng-model="vm.new_item.quantity" placeholder="0" />
+            </td>
+            <td>
+              <input type="text" data-ng-model="vm.new_item.category" placeholder="Category" />
+            </td>
+            <td data-ng-click="vm.create()">&plus;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
